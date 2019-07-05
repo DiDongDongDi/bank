@@ -16,8 +16,9 @@ public class DebitCard extends Card {
 
     public void Create_DebitCard()  //增加储蓄卡
     {
-        CardNumber++;
-        System.out.println("储蓄卡办理成功，卡号为："+this.getCardNumber());
+        count++;
+        setCardNumber(count);
+        System.out.println("您的储蓄卡办理成功，卡号为："+this.getCardNumber());
     }
     public int save_money(int num) //存钱
     {

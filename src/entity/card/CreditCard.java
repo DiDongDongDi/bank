@@ -21,8 +21,9 @@ public class CreditCard extends Card {
     }
     public void Create_Credit()
     {
-        CardNumber++;
-        System.out.println("您的信用卡卡号为"+cardNumber);
+        count++;
+        setCardNumber(count);
+        System.out.println("您的信用卡办理成功，卡号为:"+this.getCardNumber());
     }
     public void use_money(int money)
     {
