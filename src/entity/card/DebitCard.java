@@ -36,4 +36,9 @@ public class DebitCard extends Card{
             return this.balance;
         }
     }
+    public void show()
+    {
+        System.out.println("卡类型\t\t卡号\t\t存款");
+        System.out.println("借记卡"+"\t\t"+this.getCardNumber()+"\t\t"+getBalance());
+    }
 }

@@ -49,4 +49,9 @@ public class CreditCard extends  Card{
 
         }
     }
+    public void show()
+    {
+        System.out.println("卡类型\t\t卡号\t\t总额度\t\t已透支");
+        System.out.println("信用卡"+"\t\t"+this.getCardNumber()+"\t\t"+getLimitation()+"\t\t"+getBalance());
+    }
 }
