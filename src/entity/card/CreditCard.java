@@ -15,7 +15,7 @@ public class CreditCard extends  Card{
     public void setBalance(int balance) {
         this.balance = balance;
     }
-    CreditCard()
+    public CreditCard()
     {
         limitation=2000;
         balance=0;
