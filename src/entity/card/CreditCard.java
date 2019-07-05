@@ -21,7 +21,7 @@ public class CreditCard extends Card {
     }
     public void Create_Credit()
     {
-        cardNumber++;
+        CardNumber++;
         System.out.println("您的信用卡卡号为"+cardNumber);
     }
     public void use_money(int money)
