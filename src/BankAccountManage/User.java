@@ -40,7 +40,7 @@ public class User{
 	}
 
 	private boolean check(String name, String password){//检查用户名和密码是否匹配
-		if(this.name==name && this.password==password)
+		if(this.name.equals(name) && this.password.equals( password))
 			return true;
 		return false;
 	}
