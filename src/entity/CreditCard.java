@@ -40,6 +40,7 @@ public class CreditCard extends  Card{
         if(money>getBalance())
         {
             System.out.println("你没有欠那么多钱，退还"+(money-getBalance()));
+            setBalance(0);
         }
         else
         {
