@@ -1,9 +1,9 @@
 package entity.card;
 import java.util.Scanner;
-public class CreditCard extends  Card{
-            private int limitation;
-            public static int C_count=0;
-            public int balance;
+public class CreditCard extends Card {
+    private int limitation;
+    public static int C_count=0;
+    public int balance;//已用额度
     public double getLimitation() {
         return limitation;
     }
@@ -47,6 +47,35 @@ public class CreditCard extends  Card{
             setBalance(getBalance()-money);
             System.out.println("还款成功！还欠款"+getBalance());
 
+        }
+    }
+
+    @Override
+    public void start() {
+        while(true){
+            System.out.println("请输入你想进行的操作");
+            System.out.println("1. 存款");
+            System.out.println("2.取款");
+            System.out.println("0. 退出");
+            Scanner sc = new Scanner(System.in);
+            int op = sc.nextInt();
+            switch(op){
+                case 1://存款操作
+                    System.out.println("请输入你想存入的金额：");
+                    int num = sc.nextInt();
+                    return_money(num);
+                    break;
+                case 2://取款操作
+                    System.out.println("请输入你想取出的金额：");
+                    int num2 = sc.nextInt();
+                    use_money(num2);
+                case 0:
+                    System.out.println("成功退出系统!");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("输入有误, 请重新输入!");
+            }
         }
     }
     public void show()

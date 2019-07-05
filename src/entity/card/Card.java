@@ -1,13 +1,12 @@
-// interface BankOperation
-//{
-//    public void return_money(int num);
-//    public void use_money(int num);
-//}
+
 package entity.card;
-public abstract class  Card  {
+
+import java.util.Scanner;
+
+public abstract class Card  {
     private int CardNumber;
     private String code;
-    public abstract void show();
+
     public void setCardNumber(int cardNumber) {
         CardNumber = cardNumber;
     }
@@ -23,5 +22,6 @@ public abstract class  Card  {
     public String getCode() {
         return code;
     }
-
+    public abstract void start();
+    public abstract void show();
 }
