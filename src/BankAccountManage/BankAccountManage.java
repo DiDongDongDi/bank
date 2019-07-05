@@ -8,7 +8,7 @@ import java.lang.String;
 public class BankAccountManage {
 
 
-    public ArrayList<User> users;//所有的用户
+    public ArrayList<User> users=new ArrayList<User>();//所有的用户
     public void BAMstrat(){
         System.out.println("注册/1 登陆/2");
         Scanner scanner=new Scanner(System.in);
@@ -27,12 +27,15 @@ public class BankAccountManage {
         Scanner scanner=new Scanner(System.in);
         System.out.println("请输入用户名");
         String userName=scanner.next();
-        boolean nameNotExist=false;
+        boolean nameNotExist=true;
+
         for(int i=0;i<users.size();i++){
             if(users.get(i).getName().equals(userName)){
-                nameNotExist=true;
+                nameNotExist=false;
             }
         }
+
+
         if(userName.length()>=3&&userName.length()<=20&&nameNotExist) {
 
             System.out.println("请输入密码");
@@ -77,14 +80,13 @@ public class BankAccountManage {
                 System.out.println("用户名错误");
                 continue;
             }
-            else if(users.get(rightUser).judgePassword(psssword)){//TODO
+            else if(!users.get(rightUser).login(userName,password)){//TODO
                 //用户名对,密码不对
                 System.out.println("密码错误");
                 continue;
             }
-            else{//用户名密码都对
-                users.get(rightUser).start();
-            }
+
+
             break;
         }
         if(times==3)
