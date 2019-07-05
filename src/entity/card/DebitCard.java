@@ -61,8 +61,7 @@ public class DebitCard extends Card {
                     draw_money(num2);
                 case 0:
                     System.out.println("成功退出系统!");
-                    System.exit(0);
-                    break;
+                    return;
                 default:
                     System.out.println("输入有误, 请重新输入!");
             }
@@ -70,7 +69,7 @@ public class DebitCard extends Card {
     }
     public void show()
     {
-        System.out.println("卡类型\t\t卡号\t\t存款");
+        System.out.println("卡类型\t\t卡号\t\t卡上余额");
         System.out.println("储蓄卡"+"\t\t"+this.getCardNumber()+"\t\t"+getBalance());
     }
 }

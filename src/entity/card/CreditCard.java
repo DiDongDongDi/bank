@@ -71,8 +71,7 @@ public class CreditCard extends Card {
                     use_money(num2);
                 case 0:
                     System.out.println("成功退出系统!");
-                    System.exit(0);
-                    break;
+                   return;
                 default:
                     System.out.println("输入有误, 请重新输入!");
             }
