@@ -26,3 +26,7 @@ hs_err_pid*
 # others
 *.un~
 *.swp
+*.iml
+
+# windows
+./.idea
