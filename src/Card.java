@@ -17,5 +17,5 @@ public class Card {
     public String getCode() {
         return code;
     }
-    
+
 }
