@@ -29,7 +29,7 @@ public class BankAccountManage {
         String userName=scanner.next();
         boolean nameNotExist=false;
         for(int i=0;i<users.size();i++){
-            if(users.get(i).name.equals(userName)){
+            if(users.get(i).getName().equals(userName)){
                 nameNotExist=true;
             }
         }
@@ -67,7 +67,7 @@ public class BankAccountManage {
             boolean nameExist=false;
             int rightUser=0;
             for(;rightUser<users.size();rightUser++){
-                if(users.get(rightUser).name.equals(userName)){
+                if(users.get(rightUser).getName().equals(userName)){
                     nameExist=true;
                     break;//只跳出了找正确的用户的循环
                 }
