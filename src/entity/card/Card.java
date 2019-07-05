@@ -4,7 +4,7 @@ package entity.card;
 import java.util.Scanner;
 
 public abstract class Card  {
-    private int CardNumber;
+    private static int CardNumber=0;
     private String code;
 
     public void setCardNumber(int cardNumber) {
