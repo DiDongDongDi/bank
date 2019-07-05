@@ -6,8 +6,7 @@ import java.lang.String;
 
 //
 public class BankAccountManage {
-    public ArrayList<String> userAndPassword;
-    //TODO  上方 是文件中的用户名和密码
+
 
     public ArrayList<User> users;//所有的用户
     public void BAMstrat(){
@@ -28,17 +27,22 @@ public class BankAccountManage {
         Scanner scanner=new Scanner(System.in);
         System.out.println("请输入用户名");
         String userName=scanner.next();
-        if(userName.length()>=3&&userName.length()<=20&&true) {//TODO
+        boolean nameNotExist=false;
+        for(int i=0;i<users.size();i++){
+            if(users.get(i).name.equals(userName)){
+                nameNotExist=true;
+            }
+        }
+        if(userName.length()>=3&&userName.length()<=20&&nameNotExist) {
 
             System.out.println("请输入密码");
             String p1=scanner.next();
             System.out.println("请再次输入密码");
             String p2=scanner.next();
             if(p1.length()>0&&p1.equals(p2)){
-                //放入数组  TODO
-                user temp=new user(userName,p1);
+                User temp=new User(userName,p1);
+                users.add(temp);
 
-                //需要修改  TODO
                 System.out.println("创建成功");
                 return true;
             }
@@ -47,41 +51,45 @@ public class BankAccountManage {
                 return false;
             }
         }
+        else{
+            System.out.println("用户名长度不符或用户名已经被占用,创建失败");
+        }
         return false;
     }
     public void login(){
         Scanner scanner=new Scanner(System.in);
-
-        for(int times=0;times<3;times++) {
+        int times=0;
+        for(;times<3;times++) {
             System.out.println("请输入用户名");
             String userName = scanner.next();
             System.out.println("请输入密码");
             String password = scanner.next();
-            if () {//TODO
+            boolean nameExist=false;
+            int rightUser=0;
+            for(;rightUser<users.size();rightUser++){
+                if(users.get(rightUser).name.equals(userName)){
+                    nameExist=true;
+                    break;//只跳出了找正确的用户的循环
+                }
+            }
+            if (!nameExist) {//
                 //没找到用户名
                 System.out.println("用户名错误");
                 continue;
             }
-            if(){//TODO
+            else if(users.get(rightUser).judgePassword(psssword)){//TODO
                 //用户名对,密码不对
                 System.out.println("密码错误");
                 continue;
             }
-            manage(userName);
+            else{//用户名密码都对
+                users.get(rightUser).start();
+            }
             break;
         }
-        System.out.println("您已经三次输入错误,系统退出");
+        if(times==3)
+            System.out.println("您已经三次输入错误,系统退出");
 
     }
-    public void manage(String userName){
-        //TODO
-
-        for(int i=0;i<users.size();i++){
-            if(users[i].name.equals(userName)&&) {//TODO
-                user.start();//TODO
-                break;
-            }
-        }
-
-    }
+    
 }
