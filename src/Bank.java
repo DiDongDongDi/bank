@@ -1,6 +1,8 @@
 import java.util.*;
+import BankAccountManage.*;
 
 public class Bank{
+	
 	BankAccountManage BAM;
 	
 	Bank(){
@@ -17,11 +19,11 @@ public class Bank{
 			int op = sc.nextInt();
 			switch(op){
 				case 1:
-					BAM.start();//开始银行账户的管理
+					BAM.BAMstrat();//开始银行账户的管理
 					break;
 				case 0:
 					System.out.println("成功退出系统!");
-					exit(0);
+					System.exit(0);
 					break;
 				default:
 					System.out.println("输入有误, 请重新输入!");
