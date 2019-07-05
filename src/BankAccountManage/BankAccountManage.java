@@ -1,97 +1,124 @@
 package BankAccountManage;
 
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.lang.String;
+import java.util.*;
+import entity.card.*;
+import entity.factory.*;
 
-//
-public class BankAccountManage {
+public class User{
+	public static final int MAX_CARD_NUM = 5;
+	public static final factory FACTORY = new factory();
+	private String name;
+	private String password;
+	private Card []cards;
+	private int cardNum;
 
+	User(String name, String password){
+		this.name=name;
+		this.password=password;
+		this.cardNum=0;
+		cards = new Card[MAX_CARD_NUM];
+	}
 
-    public ArrayList<User> users=new ArrayList<User>();//所有的用户
-    public void BAMstrat(){
-        System.out.println("注册/1 登陆/2");
-        Scanner scanner=new Scanner(System.in);
-        int choose=scanner.nextInt();
-        switch(choose) {
-            case 1:
-                addAccount();
-                break;
-            case 2:
-                login();
-                break;
-        }
-    }
-    public boolean addAccount(){
+	String getName(){
+		return this.name;
+	}
+	
+	boolean setName(String oldName, String oldPassword, String newName){//日后设置用户名
+		if(check(oldName, oldPassword)){
+			this.name=newName;
+			return true;
+		}
+		return false;
+	}
 
-        Scanner scanner=new Scanner(System.in);
-        System.out.println("请输入用户名");
-        String userName=scanner.next();
-        boolean nameNotExist=true;
+	boolean setPassword(String oldName, String oldPassword, String newPassword){//日后设置密码
+		if(check(oldName, oldPassword)){
+			this.password=newPassword;
+			return true;
+		}
+		return false;
+	}
 
-        for(int i=0;i<users.size();i++){
-            if(users.get(i).getName().equals(userName)){
-                nameNotExist=false;
-            }
-        }
+	private boolean check(String name, String password){//检查用户名和密码是否匹配
+		if(this.name.equals(name) && this.password.equals( password))
+			return true;
+		return false;
+	}
 
+	boolean login(String name, String password){
+		if(check(name, password)){
+			System.out.println("登录成功!");
+			while(true){
+				System.out.println("请选择服务:");
+				System.out.println("1. 办卡");
+				System.out.println("2. 选卡");
+				System.out.println("0. 退出登录");
+				Scanner sc = new Scanner(System.in);
+				int op = sc.nextInt();
+				switch(op){
+					case 1:
+						makeCard();
+						break;
+					case 2:
+						chooseCard();
+						break;
+					case 0:
+						return true;
+					default:
+						System.out.println("输入有误, 请重新输入!");
+				}
+			}
+		}
+		return false;
+	}
 
-        if(userName.length()>=3&&userName.length()<=20&&nameNotExist) {
+	private void makeCard(){
+		if(cardNum==MAX_CARD_NUM){
+			System.out.println("您办理的卡的数量已达到最大值(5), 不能继续办理!");
+			return;
+		}
+		while(true){
+			System.out.println("请输入您想办理的卡的种类:");
+			System.out.println("1. 储蓄卡");
+			System.out.println("2. 信用卡");
+			System.out.println("0. 退出办卡");
+			Scanner sc = new Scanner(System.in);
+			int op = sc.nextInt();
+			switch(op){
+				case 1:
+					cards[cardNum] = FACTORY.addCard(op);
+					cards[cardNum].show();
+					cardNum++;
+					return;
+				case 2:
+					cards[cardNum] = FACTORY.addCard(op);
+					cards[cardNum].show();
+					cardNum++;
+					return;
+				case 0:
+					return;
+				default:
+					System.out.println("输入有误, 请重新输入!");
+			}
+		}
+	}
 
-            System.out.println("请输入密码");
-            String p1=scanner.next();
-            System.out.println("请再次输入密码");
-            String p2=scanner.next();
-            if(p1.length()>0&&p1.equals(p2)){
-                User temp=new User(userName,p1);
-                users.add(temp);
-
-                System.out.println("创建成功");
-                return true;
-            }
-            else{
-                System.out.println("密码不同,创建失败");
-                return false;
-            }
-        }
-        else{
-            System.out.println("用户名长度不符或用户名已经被占用,创建失败");
-        }
-        return false;
-    }
-    public void login(){
-        Scanner scanner=new Scanner(System.in);
-        int times=0;
-        for(;times<3;times++) {
-            System.out.println("请输入用户名");
-            String userName = scanner.next();
-            System.out.println("请输入密码");
-            String password = scanner.next();
-            boolean nameExist=false;
-            int rightUser=0;
-            for(;rightUser<users.size();rightUser++){
-                if(users.get(rightUser).getName().equals(userName)){
-                    nameExist=true;
-                    break;//只跳出了找正确的用户的循环
-                }
-            }
-            if (!nameExist) {//
-                //没找到用户名
-                System.out.println("用户名错误");
-                continue;
-            }
-            else if(!users.get(rightUser).login(userName,password)){//TODO
-                //用户名对,密码不对
-                System.out.println("密码错误");
-                continue;
-            }
-
-
-            break;
-        }
-        if(times==3)
-            System.out.println("您已经三次输入错误,系统退出");
-
-    }
-
+	private void chooseCard(){
+		while(true){
+			System.out.println("您的卡的信息如下:");
+			for(int i=0;i<cardNum;++i){
+				System.out.println("Card"+(i+1));
+				cards[i].show();
+			}
+			System.out.println("请选择银行卡进行操作:");
+			Scanner sc = new Scanner(System.in);
+			int op = sc.nextInt();
+			if(op<=0 || op>cardNum)
+				System.out.println("输入有误, 请重新输入");
+			else{
+				cards[op-1].start();
+				return;
+			}
+		}
+	} 
 }
