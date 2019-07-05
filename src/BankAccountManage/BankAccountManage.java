@@ -12,7 +12,12 @@ public class BankAccountManage {
     public void BAMstrat(){
         System.out.println("注册/1 登陆/2");
         Scanner scanner=new Scanner(System.in);
+        
         int choose=scanner.nextInt();
+        while(choose!=1&&choose!=2){
+            System.out.println("输入错误,请重新输入");
+            choose=scanner.nextInt();
+        }
         switch(choose) {
             case 1:
                 addAccount();
@@ -80,7 +85,7 @@ public class BankAccountManage {
                 System.out.println("用户名错误");
                 continue;
             }
-            else if(!users.get(rightUser).login(userName,password)){//TODO
+            else if(!users.get(rightUser).login(userName,password)){
                 //用户名对,密码不对
                 System.out.println("密码错误");
                 continue;
