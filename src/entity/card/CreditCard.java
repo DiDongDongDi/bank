@@ -60,20 +60,21 @@ public class CreditCard extends Card {
             Scanner sc = new Scanner(System.in);
             int op = sc.nextInt();
             switch(op){
-                case 1://存款操作
-                    System.out.println("请输入你想存入的金额：");
+                case 1://还款操作
+                    System.out.println("请输入你想还的金额：");
                     int num = sc.nextInt();
                     return_money(num);
                     break;
                 case 2://取款操作
-                    System.out.println("请输入你想取出的金额：");
+                    System.out.println("请输入你想使用的金额：");
                     int num2 = sc.nextInt();
                     use_money(num2);
                 case 0:
                     System.out.println("成功退出系统!");
                    return;
                 default:
-                    System.out.println("输入有误, 请重新输入!");
+                    System.out.println("输入有误, 请
+                                       重新输入!");
             }
         }
     }
