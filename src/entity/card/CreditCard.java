@@ -2,7 +2,6 @@ package entity.card;
 import java.util.Scanner;
 public class CreditCard extends Card {
     private int limitation;
-    public static int C_count=0;
     public int balance;//已用额度
     public double getLimitation() {
         return limitation;
@@ -22,9 +21,8 @@ public class CreditCard extends Card {
     }
     public void Create_Credit()
     {
-        C_count++;
-        setCardNumber(C_count);
-        System.out.println("您的信用卡卡号为"+C_count);
+        cardNumber++;
+        System.out.println("您的信用卡卡号为"+cardNumber);
     }
     public void use_money(int money)
     {
