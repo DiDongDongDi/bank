@@ -3,8 +3,9 @@ package BankAccountManage;
 import java.util.*;
 import entity.card.*;
 import entity.factory.*;
+import java.io.*;
 
-public class User{
+public class User implements Serializable{
 	public static final int MAX_CARD_NUM = 5;
 	public static final factory FACTORY = new factory();
 	private String name;

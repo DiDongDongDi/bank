@@ -3,7 +3,9 @@ package entity.card;
 
 import java.util.Scanner;
 
-public abstract class Card  {
+import java.io.*;
+
+public abstract class Card implements Serializable{
     private int CardNumber;
     public static int count = 0;
     private String code;

@@ -10,6 +10,7 @@ public class Bank{
 	}
 	
 	void start(){
+		BAM.loadUsers();
 		System.out.println("欢迎光临本银行!");
 		while(true){
 			try{
@@ -23,6 +24,7 @@ public class Bank{
 						BAM.BAMstrat();//开始银行账户的管理
 						break;
 					case 0:
+						BAM.storeUsers();
 						System.out.println("成功退出系统!");
 						System.exit(0);
 						break;

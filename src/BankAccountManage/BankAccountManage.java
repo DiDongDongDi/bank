@@ -3,6 +3,7 @@ package BankAccountManage;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.lang.String;
+import java.io.*;
 
 //
 public class BankAccountManage {
@@ -102,5 +103,36 @@ public class BankAccountManage {
             System.out.println("您已经三次输入错误, 退出登录!");
 
     }
+
+	public void storeUsers(){
+		try{
+			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("res/users.txt"));
+			oos.writeObject(users);
+			oos.close();
+		}
+		catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+		catch(IOException e){
+			e.printStackTrace();
+		}
+	}
+
+	public void loadUsers(){
+		try{
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("res/users.txt"));
+			users = (ArrayList)ois.readObject();
+			ois.close();
+		}
+		catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+		catch(IOException e){
+			e.printStackTrace();
+		}
+		catch(ClassNotFoundException e){
+			e.printStackTrace();
+		}
+	}
 
 }
