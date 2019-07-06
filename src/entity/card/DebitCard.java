@@ -53,11 +53,21 @@ public class DebitCard extends Card {
                 case 1://存款操作
                     System.out.println("请输入你想存入的金额：");
                     int num = sc.nextInt();
+                    while(num<=0)
+                    {
+                        System.out.println("存入金额不正确,重新输入");
+                        num=sc.nextInt();
+                    }
                     save_money(num);
                     break;
                 case 2://取款操作
                     System.out.println("请输入你想取出的金额：");
                     int num2 = sc.nextInt();
+                    while(num2<=0)
+                    {
+                        System.out.println("取出金额不正确");
+                        num2=sc.nextInt();
+                    }
                     draw_money(num2);
                 case 0:
                     System.out.println("成功退出系统!");
