@@ -62,11 +62,21 @@ public class CreditCard extends Card {
                 case 1://还款操作
                     System.out.println("请输入你想还的金额:");
                     int num = sc.nextInt();
+                    while(num<=0)
+                    {
+                        System.out.println("金额不正确,重新输入");
+                        num=sc.nextInt();
+                    }
                     return_money(num);
                     break;
                 case 2://取款操作
                     System.out.println("请输入你想使用的金额:");
                     int num2 = sc.nextInt();
+                    while(num2<=0)
+                    {
+                        System.out.println("存入金额不正确,重新输入");
+                        num2=sc.nextInt();
+                    }
                     use_money(num2);
                 case 0:
 					return;
