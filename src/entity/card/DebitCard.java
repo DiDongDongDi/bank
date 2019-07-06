@@ -55,7 +55,7 @@ public class DebitCard extends Card {
                     int num = sc.nextInt();
                     while(num<=0)
                     {
-                        System.out.println("存入金额不正确,重新输入");
+                        System.out.println("存入金额不正确, 请重新输入!");
                         num=sc.nextInt();
                     }
                     save_money(num);
@@ -65,7 +65,7 @@ public class DebitCard extends Card {
                     int num2 = sc.nextInt();
                     while(num2<=0)
                     {
-                        System.out.println("取出金额不正确");
+                        System.out.println("取出金额不正确, 请重新输入!");
                         num2=sc.nextInt();
                     }
                     draw_money(num2);

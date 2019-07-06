@@ -79,8 +79,8 @@ public class User{
 		}
 		while(true){
 			System.out.println("请输入您想办理的卡的种类:");
-			System.out.println("1. 储蓄卡");
-			System.out.println("2. 信用卡");
+			System.out.println("1. 信用卡");
+			System.out.println("2. 储蓄卡");
 			System.out.println("0. 退出办卡");
 			Scanner sc = new Scanner(System.in);
 			int op = sc.nextInt();

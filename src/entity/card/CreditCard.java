@@ -64,7 +64,7 @@ public class CreditCard extends Card {
                     int num = sc.nextInt();
                     while(num<=0)
                     {
-                        System.out.println("金额不正确,重新输入");
+                        System.out.println("还款金额不正确, 重新输入!");
                         num=sc.nextInt();
                     }
                     return_money(num);
@@ -74,7 +74,7 @@ public class CreditCard extends Card {
                     int num2 = sc.nextInt();
                     while(num2<=0)
                     {
-                        System.out.println("存入金额不正确,重新输入");
+                        System.out.println("存入金额不正确, 重新输入!");
                         num2=sc.nextInt();
                     }
                     use_money(num2);
