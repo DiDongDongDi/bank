@@ -110,7 +110,7 @@ public class User{
 				System.out.println("Card"+(i+1));
 				cards[i].show();
 			}
-			System.out.println("请选择银行卡进行操作(输入 0 退出):");
+			System.out.println("请选择银行卡进行操作(输入 0 退出选卡):");
 			Scanner sc = new Scanner(System.in);
 			int op = sc.nextInt();
 			if(op<0 || op>cardNum)

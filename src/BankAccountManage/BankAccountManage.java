@@ -10,22 +10,26 @@ public class BankAccountManage {
 
     public ArrayList<User> users=new ArrayList<User>();//所有的用户
     public void BAMstrat(){
-        System.out.println("请选择您的操作:\n1. 注册\n2. 登陆");
-        Scanner scanner=new Scanner(System.in);
-        
-        int choose=scanner.nextInt();
-        while(choose!=1&&choose!=2){
-            System.out.println("输入错误, 请重新输入!");
-            choose=scanner.nextInt();
-        }
-        switch(choose) {
-            case 1:
-                addAccount();
-                break;
-            case 2:
-                login();
-                break;
-        }
+		while(true){
+			System.out.println("请选择您的操作:\n1. 注册\n2. 登陆\n0. 退出账户管理");
+			Scanner scanner=new Scanner(System.in);
+			
+			int choose=scanner.nextInt();
+			if(choose==0)
+				return;
+			while(choose!=1&&choose!=2){
+				System.out.println("输入错误, 请重新输入!");
+				choose=scanner.nextInt();
+			}
+			switch(choose) {
+				case 1:
+					addAccount();
+					break;
+				case 2:
+					login();
+					break;
+			}
+		}
     }
     public boolean addAccount(){
 
@@ -95,7 +99,7 @@ public class BankAccountManage {
             break;
         }
         if(times==3)
-            System.out.println("您已经三次输入错误, 退出!");
+            System.out.println("您已经三次输入错误, 退出登录!");
 
     }
 

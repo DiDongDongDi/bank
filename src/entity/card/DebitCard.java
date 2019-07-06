@@ -46,7 +46,7 @@ public class DebitCard extends Card {
             System.out.println("请输入你想进行的操作");
             System.out.println("1. 存款");
             System.out.println("2. 取款");
-            System.out.println("0. 退出");
+            System.out.println("0. 退出存取");
             Scanner sc = new Scanner(System.in);
             int op = sc.nextInt();
             switch(op){
@@ -82,7 +82,6 @@ public class DebitCard extends Card {
                     }
                     break;
                 case 0:
-                    System.out.println("成功退出系统!");
                     return;
                 default:
                     System.out.println("输入有误, 请重新输入!");
