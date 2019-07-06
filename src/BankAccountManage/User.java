@@ -114,7 +114,7 @@ public class User{
 			Scanner sc = new Scanner(System.in);
 			int op = sc.nextInt();
 			if(op<0 || op>cardNum)
-				System.out.println("输入有误, 请重新输入");
+				System.out.println("输入有误, 请重新输入!");
 			else if(op==0)
 				return;
 			else{

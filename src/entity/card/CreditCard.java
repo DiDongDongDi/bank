@@ -23,28 +23,28 @@ public class CreditCard extends Card {
     {
         count++;
         setCardNumber(count);
-        System.out.println("您的信用卡办理成功，卡号为:"+this.getCardNumber());
+        System.out.println("您的信用卡办理成功, 卡号为: "+this.getCardNumber());
     }
     public void use_money(int money)
     {
         if(money>(getLimitation()-balance))
-            System.out.println("额度不足无法支付");
+            System.out.println("额度不足无法支付!");
         else {
             setBalance(getBalance()+money);
-            System.out.println("支付成功！剩余额度为"+(getLimitation()-getBalance()));
+            System.out.println("支付成功! 剩余额度为: "+(getLimitation()-getBalance()));
         }
     }
     public void return_money(int money)
     {
         if(money>getBalance())
         {
-            System.out.println("你没有欠那么多钱，退还"+(money-getBalance()));
+            System.out.println("你没有欠那么多钱, 退还: "+(money-getBalance()));
             setBalance(0);
         }
         else
         {
             setBalance(getBalance()-money);
-            System.out.println("还款成功！还欠款"+getBalance());
+            System.out.println("还款成功! 还欠款: "+getBalance());
 
         }
     }
@@ -52,28 +52,26 @@ public class CreditCard extends Card {
     @Override
     public void start() {
         while(true){
-            System.out.println("请输入你想进行的操作");
+            System.out.println("请输入你想进行的操作:");
             System.out.println("1. 存款");
-            System.out.println("2.取款");
+            System.out.println("2. 取款");
             System.out.println("0. 退出");
             Scanner sc = new Scanner(System.in);
             int op = sc.nextInt();
             switch(op){
                 case 1://还款操作
-                    System.out.println("请输入你想还的金额：");
+                    System.out.println("请输入你想还的金额:");
                     int num = sc.nextInt();
                     return_money(num);
                     break;
                 case 2://取款操作
-                    System.out.println("请输入你想使用的金额：");
+                    System.out.println("请输入你想使用的金额:");
                     int num2 = sc.nextInt();
                     use_money(num2);
                 case 0:
-                    System.out.println("成功退出系统!");
-                   return;
+					return;
                 default:
-                    System.out.println("输入有误, 请
-                                       重新输入!");
+                    System.out.println("输入有误, 请重新输入!");
             }
         }
     }

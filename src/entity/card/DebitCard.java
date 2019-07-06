@@ -18,7 +18,7 @@ public class DebitCard extends Card {
     {
         count++;
         setCardNumber(count);
-        System.out.println("您的储蓄卡办理成功，卡号为："+this.getCardNumber());
+        System.out.println("您的储蓄卡办理成功, 卡号为: "+this.getCardNumber());
     }
     public int save_money(int num) //存钱
     {
@@ -29,12 +29,12 @@ public class DebitCard extends Card {
     {
         if(this.balance<num)
         {
-            System.out.println("取钱失败，余额不足！");
+            System.out.println("取钱失败, 余额不足!");
             return balance;
         }
         else
         {
-            System.out.println("取钱成功！卡上余额为："+(this.balance-num));
+            System.out.println("取钱成功! 卡上余额为: "+(this.balance-num));
             this.balance -= num;
             return this.balance;
         }
@@ -43,24 +43,23 @@ public class DebitCard extends Card {
     @Override
     public void start() {
         while(true){
-            System.out.println("请输入你想进行的操作");
+            System.out.println("请输入你想进行的操作:");
             System.out.println("1. 存款");
-            System.out.println("2.取款");
+            System.out.println("2. 取款");
             System.out.println("0. 退出");
             Scanner sc = new Scanner(System.in);
             int op = sc.nextInt();
             switch(op){
                 case 1://存款操作
-                    System.out.println("请输入你想存入的金额：");
+                    System.out.println("请输入你想存入的金额:");
                     int num = sc.nextInt();
                     save_money(num);
                     break;
                 case 2://取款操作
-                    System.out.println("请输入你想取出的金额：");
+                    System.out.println("请输入你想取出的金额:");
                     int num2 = sc.nextInt();
                     draw_money(num2);
                 case 0:
-                    System.out.println("成功退出系统!");
                     return;
                 default:
                     System.out.println("输入有误, 请重新输入!");

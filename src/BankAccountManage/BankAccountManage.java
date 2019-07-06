@@ -10,12 +10,12 @@ public class BankAccountManage {
 
     public ArrayList<User> users=new ArrayList<User>();//所有的用户
     public void BAMstrat(){
-        System.out.println("注册/1 登陆/2");
+        System.out.println("请选择您的操作:\n1. 注册\n2. 登陆");
         Scanner scanner=new Scanner(System.in);
         
         int choose=scanner.nextInt();
         while(choose!=1&&choose!=2){
-            System.out.println("输入错误,请重新输入");
+            System.out.println("输入错误, 请重新输入!");
             choose=scanner.nextInt();
         }
         switch(choose) {
@@ -30,7 +30,7 @@ public class BankAccountManage {
     public boolean addAccount(){
 
         Scanner scanner=new Scanner(System.in);
-        System.out.println("请输入用户名");
+        System.out.println("请输入用户名:");
         String userName=scanner.next();
         boolean nameNotExist=true;
 
@@ -43,24 +43,24 @@ public class BankAccountManage {
 
         if(userName.length()>=3&&userName.length()<=20&&nameNotExist) {
 
-            System.out.println("请输入密码");
+            System.out.println("请输入密码:");
             String p1=scanner.next();
-            System.out.println("请再次输入密码");
+            System.out.println("请再次输入密码:");
             String p2=scanner.next();
             if(p1.length()>0&&p1.equals(p2)){
                 User temp=new User(userName,p1);
                 users.add(temp);
 
-                System.out.println("创建成功");
+                System.out.println("创建成功!");
                 return true;
             }
             else{
-                System.out.println("密码不同,创建失败");
+                System.out.println("密码不同, 创建失败!");
                 return false;
             }
         }
         else{
-            System.out.println("用户名长度不符或用户名已经被占用,创建失败");
+            System.out.println("用户名长度不符或用户名已经被占用, 创建失败!");
         }
         return false;
     }
@@ -68,9 +68,9 @@ public class BankAccountManage {
         Scanner scanner=new Scanner(System.in);
         int times=0;
         for(;times<3;times++) {
-            System.out.println("请输入用户名");
+            System.out.println("请输入用户名:");
             String userName = scanner.next();
-            System.out.println("请输入密码");
+            System.out.println("请输入密码:");
             String password = scanner.next();
             boolean nameExist=false;
             int rightUser=0;
@@ -82,12 +82,12 @@ public class BankAccountManage {
             }
             if (!nameExist) {//
                 //没找到用户名
-                System.out.println("用户名错误");
+                System.out.println("用户名错误!");
                 continue;
             }
             else if(!users.get(rightUser).login(userName,password)){
                 //用户名对,密码不对
-                System.out.println("密码错误");
+                System.out.println("密码错误!");
                 continue;
             }
 
@@ -95,7 +95,7 @@ public class BankAccountManage {
             break;
         }
         if(times==3)
-            System.out.println("您已经三次输入错误,系统退出");
+            System.out.println("您已经三次输入错误, 退出!");
 
     }
 
